@@ -1,0 +1,3 @@
+[submodule "demoNftMania"]
+	path = demoNftMania
+	url = https://github.com/eliashezron/demoNftMania.git
