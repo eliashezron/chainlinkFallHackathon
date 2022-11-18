@@ -4,7 +4,6 @@ import { approve, depositToken } from "../utils/depositFunction"
 import { ethers } from "ethers"
 import AmountIn from "./AmountIn"
 import AmountOut from "./AmountOut"
-import Balance from "./Balance"
 import PhoneNo from "./PhoneNo"
 import styles from "../styles"
 import { useEthers } from "@usedapp/core"
@@ -64,18 +63,22 @@ const Exchange = () => {
       cashOutToken
     )
     notify("Please Approve Transaction")
-    const x = await approve(amt, library, networkHandler, cashOutToken)
-    if (!x) throw new Error("Token not Approved")
-    notify("Please click on Deposit Button")
-    await depositToken(
-      amt,
-      phoneNo,
-      library,
-      intocurrency,
-      currency,
-      networkHandler,
-      cashOutToken
-    )
+    try {
+      const x = await approve(amt, library, networkHandler, cashOutToken)
+      if (!x) throw new Error("Token not Approved")
+      notify("Please sign the transaction")
+      await depositToken(
+        amt,
+        phoneNo,
+        library,
+        intocurrency,
+        currency,
+        networkHandler,
+        cashOutToken
+      )
+    } catch (error) {
+      toast.error(error.message)
+    }
   }
   const onNetworkHandler = (value) => {
     setNetworkHandler(value)
@@ -114,7 +117,6 @@ const Exchange = () => {
           inUsd={intoUsdhandler}
           taddress={taddresshandler}
         />
-        <Balance />
       </div>
 
       <div className='mb-8 w-[100%]'>

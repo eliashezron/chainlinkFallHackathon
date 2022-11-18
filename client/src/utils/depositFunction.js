@@ -5,7 +5,7 @@ import minimalForwarderAbi from "../contracts/minimalForwarder.json"
 import cashOutAbi from "../contracts/cashOut.json"
 import tokenAbi from "../contracts/token.json"
 import axios from "axios"
-
+import { toast } from "react-toastify"
 export async function approve(amount, provider, networkHandler, cashOutToken) {
   const signer = provider.getSigner()
   const token = createInstance(
@@ -32,11 +32,11 @@ async function sendMetaTx(
     cashOutAbi,
     provider
   )
-  const token = createInstance(
-    addresses[networkHandler].Token[cashOutToken],
-    tokenAbi,
-    provider
-  )
+  // const token = createInstance(
+  //   addresses[networkHandler].Token[cashOutToken],
+  //   tokenAbi,
+  //   provider
+  // )
   const forwarder = createInstance(
     addresses[networkHandler].MinimalForwarder,
     minimalForwarderAbi,
@@ -44,8 +44,6 @@ async function sendMetaTx(
   )
   const signer = provider.getSigner()
   const from = await signer.getAddress()
-  const allowance = await token.allowance(from, cashOut.address)
-  if (amount < allowance) throw new Error(`Insufficient Allowance`)
   const data = cashOut.interface.encodeFunctionData("depositToken", [
     addresses[networkHandler].Token[cashOutToken],
     amount,
@@ -74,19 +72,19 @@ async function sendMetaTx(
     .then(async (res) => {
       console.log(res)
       try {
-        const config = { headers: { "Content-Type": "application/json" } }
-        const { data } = await axios.post(
-          "/api/cashout",
-          request.params,
-          config
-        )
-        console.log(data)
+        if (res.status === 200 && res.ok) {
+          toast.success("Token Deposited")
+          const config = { headers: { "Content-Type": "application/json" } }
+          const { data } = await axios.post("/api/cashout", params, config)
+          if (data.status === "NEW") toast.info("Fiat transaction Initiated")
+        }
       } catch (error) {
-        console.log(error)
+        toast.error(error.message)
       }
     })
-    .catch((error) => console.log(error))
-    .finally(() => console.log("done"))
+    .catch((error) => {
+      toast.error(error.message)
+    })
 }
 export async function depositToken(
   amount,
