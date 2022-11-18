@@ -58,10 +58,34 @@ const AmountIn = ({ value, onChange, onChain, inUsd, onToken, taddress }) => {
                     setActiveToken(tokenName)
                     onToken(tokenName)
                     taddress(add)
-                    if (typeof onSelect === "function") onChain(activeChainId)
-                    const z = await handlePriceFeed(pricefeed)
-                    inUsd(z)
-                    console.log(z)
+                    onChain(activeChainId)
+                    if (typeof onSelect === "function");
+                    if (
+                      pricefeed === "0x9ae96129ed8FE0C707D6eeBa7b90bB1e139e543e"
+                    ) {
+                      const x = await handlePriceFeed(pricefeed)
+                      const y = await handlePriceFeed(
+                        "0x5f4eC3Df9cbd43714FE2740f5E3616155c5b8419"
+                      )
+                      const z = x * 10 ** -10 * y
+                      inUsd(z)
+                      console.log(z)
+                    }
+                    if (
+                      pricefeed === "0x2DE7E4a9488488e0058B95854CC2f7955B35dC9b"
+                    ) {
+                      const x = await handlePriceFeed(pricefeed)
+                      const y = await handlePriceFeed(
+                        "0x5f4eC3Df9cbd43714FE2740f5E3616155c5b8419"
+                      )
+                      const z = x * 10 ** -10 * y
+                      inUsd(z)
+                      console.log(z)
+                    } else {
+                      const z = await handlePriceFeed(pricefeed)
+                      inUsd(z)
+                    }
+
                     setShowList(false)
                   }}
                 >

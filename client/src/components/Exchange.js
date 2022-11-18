@@ -4,12 +4,15 @@ import { approve, depositToken } from "../utils/depositFunction"
 import { ethers } from "ethers"
 import AmountIn from "./AmountIn"
 import AmountOut from "./AmountOut"
+import Balance from "./Balance"
 import PhoneNo from "./PhoneNo"
 import styles from "../styles"
 import { useEthers } from "@usedapp/core"
-// import { toast } from "react-toastify"
+import { toast } from "react-toastify"
+import "react-toastify/dist/ReactToastify.css"
 const Exchange = () => {
   const { library } = useEthers()
+
   const api = "https://api.exchangerate-api.com/v4/latest/USD"
   function getResults() {
     fetch(`${api}`)
@@ -25,50 +28,54 @@ const Exchange = () => {
     setintocurrency(finalValue)
   }
 
+  const notify = (message) => toast.info(message)
+
   const [cashOutValue, setcashOutValue] = useState("0")
-  // eslint-disable-next-line
   const [cashOutToken, setcashOutToken] = useState("")
-  // eslint-disable-next-line
-  const [tokenaddress, settokenaddress] = useState("")
   const [prefix, setprefix] = useState("")
-  // eslint-disable-next-line
-  const [networkHandler, setNetworkHandler] = useState(
-    parseInt(window.ethereum.chainId, 16)
-  )
+  const [networkHandler, setNetworkHandler] = useState("") // initialFromToken
   const [phoneNumber, setphoneNumber] = useState("")
+  //eslint-disable-next-line
+  const [tokenAddress, settokenaddress] = useState("")
   const [currency, setcurrency] = useState("")
   const [intocurrency, setintocurrency] = useState("")
+  // const [resetState, setResetState] = useState(false)
   const [intousd, setintousd] = useState("")
+
   const onCashOutValueChange = (value) => {
     const trimmedValue = value.trim()
-
     try {
       trimmedValue && parseUnits(value)
       setcashOutValue(value)
     } catch (e) {}
   }
+
   const sendtx = async () => {
-    // toast(" Approve transaction!", { type: "info" })
     const amt = ethers.utils.parseEther(cashOutValue)
     const phNo = "" + prefix + phoneNumber
     const phoneNo = phNo.replace(/[^0-9]/g, "")
-    try {
-      const x = await approve(amt, tokenaddress, library)
-      if (!x) throw new Error("Token not Approve")
-      // toast("sign transaction to complete!", { type: "info" })
-      await depositToken(
-        tokenaddress,
-        amt,
-        phoneNo,
-        library,
-        intocurrency,
-        currency
-      )
-      // toast("Fiat Transaction Intiated!", { type: "success" })
-    } catch (error) {
-      console.log(error)
-      // toast(error.message, { type: "error" })
-    }
+    console.log(
+      amt,
+      phNo,
+      phoneNo,
+      intocurrency,
+      currency,
+      networkHandler,
+      cashOutToken
+    )
+    notify("Please Approve Transaction")
+    const x = await approve(amt, library, networkHandler, cashOutToken)
+    if (!x) throw new Error("Token not Approved")
+    notify("Please click on Deposit Button")
+    await depositToken(
+      amt,
+      phoneNo,
+      library,
+      intocurrency,
+      currency,
+      networkHandler,
+      cashOutToken
+    )
   }
   const onNetworkHandler = (value) => {
     setNetworkHandler(value)
@@ -77,6 +84,7 @@ const Exchange = () => {
   const intoUsdhandler = (value) => {
     setintousd(value)
   }
+  //console.log(fromValue,fromToken,intousd,toToken)
   const onCurrencyChange = (value) => {
     setcurrency(value)
   }
@@ -89,11 +97,11 @@ const Exchange = () => {
   }
   const taddresshandler = (value) => {
     settokenaddress(value)
-    console.log(tokenaddress)
   }
   const prefixhandler = (value) => {
     setprefix(value)
   }
+  // console.log(cashOutValue,intocurrency,currency)
   getResults()
   return (
     <div className='flex flex-col w-full items-center'>
@@ -106,6 +114,7 @@ const Exchange = () => {
           inUsd={intoUsdhandler}
           taddress={taddresshandler}
         />
+        <Balance />
       </div>
 
       <div className='mb-8 w-[100%]'>
@@ -126,7 +135,7 @@ const Exchange = () => {
 
       <button
         onClick={sendtx}
-        className={`${"bg-[#ffcf00] text-black"} ${styles.actionButton}`}
+        className={`${"bg-emerald-600 text-white"} ${styles.actionButton}`}
       >
         {"Approve"}
       </button>
