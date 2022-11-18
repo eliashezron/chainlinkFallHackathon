@@ -4,7 +4,11 @@ const styles = {
   innerContainer:
     "flex justify-between items-center flex-col max-w-[1280px] w-full",
   header: "flex flex-row justify-between items-center w-full sm:py-10 py-6",
+  subheader:
+    "flex items-center justify-center py-3 bg-site-green w-full h-[60px] font-poppins font-bold text-white",
   Rheader: "flex flex-row justify-end  w-full",
+  sideBySide: "flex flex-row justify-end",
+  nftGrid: "grid grid-cols-2 gap-3",
   exchangeContainer: "flex-1 flex justify-start items-center flex-col w-full",
   headTitle: "text-white font-poppins font-black text-5xl tracking-wide",
   subTitle: "text-dim-white font-poppins font-medium mt-3 text-base",
@@ -40,7 +44,7 @@ const styles = {
   loaderImg: "w-56 h-56 object-contain",
   loaderText:
     "font-poppins font-normal text-dim-white text-lg text-center mt-10",
-
+  NftImg: "w-25 h-25 object-contain rounded-2xl",
   // balance
   balance: "w-full text-left mt-2 ml-2",
   left: "font-poppins font-normal text-green-600 text-right mr-2 mt-2 w-full ",

@@ -74,4 +74,7 @@ const startCreating = async () => {
 }
 
 // Initiate code
+
+//metadata cid = bafybeiezcxszxx5huhbictzlro3wuc23awklzn6boed5enk2lylypjrbie
+// image cid = bafybeicrxzcls3jthxho6hwqctuygj46cldfo7cvkgyrgbi7s53uxcknby
 startCreating()

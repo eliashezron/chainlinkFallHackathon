@@ -18,7 +18,7 @@ const generateMetadata = (dna, edition, attributesList, path) => {
   let dateTime = Date.now()
   let tempMetadata = {
     dna: dna.join(""),
-    name: `#${edition}`,
+    name: `CashOut puppies #${edition}`,
     description: description,
     image: path || baseImageUri,
     edition: edition,

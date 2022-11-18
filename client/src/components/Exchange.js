@@ -134,10 +134,9 @@ const Exchange = () => {
           phoneprefix={prefix}
         />
       </div>
-
       <button
         onClick={sendtx}
-        className={`${"bg-emerald-600 text-white"} ${styles.actionButton}`}
+        className={`${"bg-sky-700 text-white"} ${styles.actionButton}`}
       >
         {"Approve"}
       </button>

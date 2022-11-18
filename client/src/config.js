@@ -1,11 +1,9 @@
-import { Mumbai, FantomTestnet, BSCTestnet } from "@usedapp/core"
+import { Mumbai } from "@usedapp/core"
 
 export const DAPP_CONFIG = {
-  readOnlyChainId: FantomTestnet.chainId,
+  readOnlyChainId: Mumbai.chainId,
   readOnlyUrls: {
-    [Mumbai.chainId]: `https://polygon-mumbai.g.alchemy.com/v2/QWBjR1zQlh9_j3wnnDHctBnHmn-Obao3`,
-    [BSCTestnet.chainId]: `https://data-seed-prebsc-2-s1.binance.org:8545/`,
-    [FantomTestnet.chainId]: `https://xapi.testnet.fantom.network/lachesis/`,
+    [Mumbai.chainId]: `https://neat-clean-pool.matic-testnet.discover.quiknode.pro/45c26e01961dc7f5bb4a3e7a99e16f4358774f61`,
   },
   noMetamaskDeactivate: true,
 }

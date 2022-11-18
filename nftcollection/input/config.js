@@ -127,7 +127,7 @@ const baseImageUri = "https://github.com/eliashezron/"
 // id for edition to start from
 const startEditionFrom = 1
 // amount of NFTs to generate in edition
-const editionSize = 3
+const editionSize = 100
 // prefix to add to edition dna ids (to distinguish dna counts from different generation processes for the same collection)
 const editionDnaPrefix = 0
 
@@ -161,7 +161,7 @@ const layers = [
   addLayer("outerEye"),
   addLayer("tongue"),
   addLayer("outerTongue"),
-  addLayer("darkColour"),
+  addLayer("backColour"),
   addLayer("outerColour"),
 ]
 

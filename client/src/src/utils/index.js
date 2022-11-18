@@ -1,2 +1,0 @@
-
-export {useOnClickOutside} from './helpers';
