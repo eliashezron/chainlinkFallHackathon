@@ -2,7 +2,7 @@ import React from "react"
 import { useEthers } from "@usedapp/core"
 import { ToastContainer } from "react-toastify"
 import styles from "./styles"
-import { four, Logo, three, two, one, five, six } from "./assets"
+import { four, Logo, three, two, one } from "./assets"
 import { Exchange, Loader, WalletButton, Networks, History } from "./components"
 
 const App = () => {
@@ -12,7 +12,7 @@ const App = () => {
     <div className={styles.container}>
       <div className={styles.innerContainer}>
         <div class={styles.subheader}>
-          <p class=''>SWAP CRYPTO FOR FIAT AND EARN A CASHOUT PUPPY </p>
+          <p class=''> ⚡ SWAP CRYPTO FOR FIAT AND EARN A CASHOUT PUPPY ⚡ </p>
         </div>
         <header className={styles.header}>
           <img
@@ -53,29 +53,36 @@ const App = () => {
               <div className='blue_gradient' />
             </div>
           </div>
-
-          <div className={styles.nftGrid}>
-            <div>
-              <img src={one} alt='cashout puppies' className={styles.NftImg} />
-            </div>
-            <div>
-              <img src={two} alt='cashout puppies' className={styles.NftImg} />
-            </div>
-            <div>
-              <img
-                src={three}
-                alt='cashout puppies'
-                className={styles.NftImg}
-              />
-            </div>
-            <div>
-              <img src={four} alt='cashout puppies' className={styles.NftImg} />
-            </div>
-            <div>
-              <img src={five} alt='cashout puppies' className={styles.NftImg} />
-            </div>
-            <div>
-              <img src={six} alt='cashout puppies' className={styles.NftImg} />
+          <div className={styles.exchangeBoxWrapper}>
+            <div className={styles.nftGrid}>
+              <div>
+                <img
+                  src={one}
+                  alt='cashout puppies'
+                  className={styles.NftImg}
+                />
+              </div>
+              <div>
+                <img
+                  src={two}
+                  alt='cashout puppies'
+                  className={styles.NftImg}
+                />
+              </div>
+              <div>
+                <img
+                  src={three}
+                  alt='cashout puppies'
+                  className={styles.NftImg}
+                />
+              </div>
+              <div>
+                <img
+                  src={four}
+                  alt='cashout puppies'
+                  className={styles.NftImg}
+                />
+              </div>
             </div>
           </div>
         </div>

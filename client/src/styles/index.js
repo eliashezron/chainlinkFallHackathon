@@ -4,15 +4,14 @@ const styles = {
   innerContainer:
     "flex justify-between items-center flex-col max-w-[1280px] w-full",
   header: "flex flex-row justify-between items-center w-full sm:py-10 py-6",
-  subheader:
-    "flex items-center justify-center py-3 bg-site-green w-full h-[60px] font-poppins font-bold text-white",
+  subheader: "flex items-center justify-center py-3 bg-site-dim2 w-full  font-poppins font-bold text-white rounded-xl",
   Rheader: "flex flex-row justify-end  w-full",
   sideBySide: "flex flex-row justify-end",
-  nftGrid: "grid grid-cols-2 gap-3",
+  nftGrid: "ml-8 grid grid-cols-2 gap-5",
   exchangeContainer: "flex-1 flex justify-start items-center flex-col w-full",
   headTitle: "text-white font-poppins font-black text-5xl tracking-wide",
   subTitle: "text-dim-white font-poppins font-medium mt-3 text-base",
-  exchangeBoxWrapper: "mt-10 w-full flex justify-center",
+  exchangeBoxWrapper: "mt-10 mb-2 w-full flex justify-center",
   exchangeBox:
     "relative md:max-w-[700px] md:min-w-[500px] min-w-full max-w-full gradient-border p-[2px] rounded-3xl",
   exchange:
@@ -44,7 +43,7 @@ const styles = {
   loaderImg: "w-56 h-56 object-contain",
   loaderText:
     "font-poppins font-normal text-dim-white text-lg text-center mt-10",
-  NftImg: "w-25 h-25 object-contain rounded-2xl",
+  NftImg: " rounded-2xl",
   // balance
   balance: "w-full text-left mt-2 ml-2",
   left: "font-poppins font-normal text-green-600 text-right mr-2 mt-2 w-full ",

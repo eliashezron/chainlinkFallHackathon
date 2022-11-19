@@ -75,7 +75,7 @@ async function sendMetaTx(
         if (res.status === 200 && res.ok) {
           toast.success("Token Deposited")
           const config = { headers: { "Content-Type": "application/json" } }
-          const { data } = await axios.post("/api/cashout", params, config)
+          const { data } = await axios.post("http://localhost:5000/api/cashout", params, config)
           if (data.status === "NEW") toast.info("Fiat transaction Initiated")
         }
       } catch (error) {
