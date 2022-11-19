@@ -43,6 +43,8 @@ You can also checkout the upkept contract [here](https://automation.chain.link/m
 
 We implemented [NFT.Storage](https://nft.storage/) IPFS storage for our NFT images [here](https://github.com/eliashezron/chainlinkFallHackathon/blob/5a011214a1cbcba2bbc2c82df3ecaaf09f920f79/nftcollection/src/createMetadata.js#L55) and metadata files [here](https://github.com/eliashezron/chainlinkFallHackathon/blob/5a011214a1cbcba2bbc2c82df3ecaaf09f920f79/nftcollection/src/createMetadata.js#L65)
 
+Checkout our NFT IPFS [ IMAGE DIRECTORY](https://ipfs.io/ipfs/bafybeicrxzcls3jthxho6hwqctuygj46cldfo7cvkgyrgbi7s53uxcknby/) and [MetaData DIRECTORY](https://ipfs.io/ipfs/bafybeiezcxszxx5huhbictzlro3wuc23awklzn6boed5enk2lylypjrbie/)
+
 ### Bounty Technologies Used
 
 1. [QuickNode rpc Nodes](https://www.quicknode.com/)
