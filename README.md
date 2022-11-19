@@ -1,4 +1,3 @@
-
 # ⚡ CASHOUT ⚡
 
 ---
@@ -20,10 +19,9 @@ Flutterwave was chosen as a payment aggregator because it gives us access to the
 
 To provide Liquidity, Cashout hopes to raise capital for the initial fiat liquidity, After the first couple of transactions, The deposited crypto funds can then be withdrawn and liquidated from exchanges or otherwise then re-employed to the fiat account that is debited for making fiat payments. This way, the project iwill be self-sustaining.
 
-The project only supports [USDT](https://mumbai.polygonscan.com/address/0x94Fa611d6fC3E7d58b7B9D30a9F7cB3F36B5a830#code), [USDC](https://mumbai.polygonscan.com/address/0x2E80e330E6D72bA5D74A0b466ef525e244b904f4#code) and [DAI](https://mumbai.polygonscan.com/address/0x242143931399f0B1Aa98183dc34896506d2B23EF#code) funds in the cashout contract.  Used for the demo project transactions. the rationale behind this is so as to have a more predictable price pattern and also its safer this way. Its also presumed on the basis that if people expect the value of an asset to go up, They will most probally choose to hoard it and so stable coins would be the best crypto currency they would offramp. We are open to intergrating other tokens in the future.
+The project only supports [USDT](https://mumbai.polygonscan.com/address/0x94Fa611d6fC3E7d58b7B9D30a9F7cB3F36B5a830#code), [USDC](https://mumbai.polygonscan.com/address/0x2E80e330E6D72bA5D74A0b466ef525e244b904f4#code) and [DAI](https://mumbai.polygonscan.com/address/0x242143931399f0B1Aa98183dc34896506d2B23EF#code) funds in the cashout contract. Used for the demo project transactions. the rationale behind this is so as to have a more predictable price pattern and also its safer this way. Its also presumed on the basis that if people expect the value of an asset to go up, They will most probally choose to hoard it and so stable coins would be the best crypto currency they would offramp. We are open to intergrating other tokens in the future.
 
 We are also minting the [cashout puppies NFTS](https://mumbai.polygonscan.com/address/0xeA3103DFED86fb85b202cC80d05b14892608cbB3#code) that are only 100 and minted to the first 100 users who use the flatform. This is a way to create a community and use of NFTs as soulbound identification with a community.
-
 
 ### CashOut Team
 
@@ -36,15 +34,14 @@ Kampala - Uganda, AFRICA
 
 #### Using ChainLink
 
-We implemented chainlink priceFeeds [here](https://github.com/eliashezron/chainlinkFallHackathon/blob/5a011214a1cbcba2bbc2c82df3ecaaf09f920f79/hardhat/contracts/CashOutPolygon.sol#L11) to implement minimum and maximum price deposits allowed in the contract. We also use chainlink pricefeeds to return the lastest token prices in USD which is further converted down to the local native currency in the frontend. 
+We implemented chainlink priceFeeds [here](https://github.com/eliashezron/chainlinkFallHackathon/blob/5a011214a1cbcba2bbc2c82df3ecaaf09f920f79/hardhat/contracts/CashOutPolygon.sol#L11) to implement minimum and maximum price deposits allowed in the contract. We also use chainlink pricefeeds to return the lastest token prices in USD which is further converted down to the local native currency in the frontend.
 
-We also used chainlink keepers compartible contract implementation [here](https://github.com/eliashezron/chainlinkFallHackathon/blob/5a011214a1cbcba2bbc2c82df3ecaaf09f920f79/hardhat/contracts/CashOutPolygon.sol#L10) to check up keep for when the contract balance exceeds the minimum balance as show [here](https://github.com/eliashezron/chainlinkFallHackathon/blob/5a011214a1cbcba2bbc2c82df3ecaaf09f920f79/hardhat/contracts/CashOutPolygon.sol#L181) we want the contract to hold. After that, it sets the tokenTrigger amount and then we use autotask to automatically withdraw the funds from the wallet after the upkeep.  You can check the autotask function [here](https://github.com/eliashezron/chainlinkFallHackathon/blob/main/hardhat/autotasks/relay/scheduledAutoTask.js)
+We also used chainlink keepers compartible contract implementation [here](https://github.com/eliashezron/chainlinkFallHackathon/blob/5a011214a1cbcba2bbc2c82df3ecaaf09f920f79/hardhat/contracts/CashOutPolygon.sol#L10) to check up keep for when the contract balance exceeds the minimum balance as show [here](https://github.com/eliashezron/chainlinkFallHackathon/blob/5a011214a1cbcba2bbc2c82df3ecaaf09f920f79/hardhat/contracts/CashOutPolygon.sol#L181) we want the contract to hold. After that, it sets the tokenTrigger amount and then we use autotask to automatically withdraw the funds from the wallet after the upkeep. You can check the autotask function [here](https://github.com/eliashezron/chainlinkFallHackathon/blob/main/hardhat/autotasks/relay/scheduledAutoTask.js)
 You can also checkout the upkept contract [here](https://automation.chain.link/mumbai/32740258423833013145512229735262618558367027048672579697651042714966823209696)
 
 #### Using IPFS and FILECOIN
 
-We implemented [NFT.Storage](https://nft.storage/) IPFS storage for our NFT images [here](https://github.com/eliashezron/chainlinkFallHackathon/blob/5a011214a1cbcba2bbc2c82df3ecaaf09f920f79/nftcollection/src/createMetadata.js#L55) and metadata files [here](https://github.com/eliashezron/chainlinkFallHackathon/blob/5a011214a1cbcba2bbc2c82df3ecaaf09f920f79/nftcollection/src/createMetadata.js#L65) 
-
+We implemented [NFT.Storage](https://nft.storage/) IPFS storage for our NFT images [here](https://github.com/eliashezron/chainlinkFallHackathon/blob/5a011214a1cbcba2bbc2c82df3ecaaf09f920f79/nftcollection/src/createMetadata.js#L55) and metadata files [here](https://github.com/eliashezron/chainlinkFallHackathon/blob/5a011214a1cbcba2bbc2c82df3ecaaf09f920f79/nftcollection/src/createMetadata.js#L65)
 
 ### Bounty Technologies Used
 
@@ -52,6 +49,7 @@ We implemented [NFT.Storage](https://nft.storage/) IPFS storage for our NFT imag
    :QuickNode rpc endpoints were used for rpc connection to the polygon Mumbai testnet blockchain both on the backend hardhat file [here](https://github.com/eliashezron/chainlinkFallHackathon/blob/5a011214a1cbcba2bbc2c82df3ecaaf09f920f79/hardhat/hardhat.config.js#L30) and the frontend react application file [here](https://github.com/eliashezron/chainlinkFallHackathon/blob/5a011214a1cbcba2bbc2c82df3ecaaf09f920f79/client/src/config.js#L6)
 
 ### Other Technologies Used
+
 1. [openzeppelin Defender](https://defender.openzeppelin.com)
    We used the openZeppelin defender to automate transactions through using of the defender [autotasks](https://docs.openzeppelin.com/defender/autotasks) and [sentinels](https://docs.openzeppelin.com/defender/sentinel). We also used Defender [relayers](https://docs.openzeppelin.com/defender/relay) to take ownership of the smart contract and store our private keys. this allows for openzepplin to manage that and prevents us exposing senstive data in the cloud.
    We also use defender [admin](https://docs.openzeppelin.com/defender/admin) to manage smartcontract methods.
@@ -98,18 +96,8 @@ The minting of the NFTS to the users is through openZeppelin sentinel which moni
 
 #### Next Steps
 
-Further development of the API to make it market ready
-
-#### URLs
-
-List any URLs relevant to demonstrating your prototype
-
-
-#### Next Steps
-
 Further development of the API to make it market ready.
 
 #### License
 
 This repository includes an [unlicensed](http://unlicense.org/) statement though you may want to [choose a different license](https://choosealicense.com/).
-
