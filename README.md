@@ -26,7 +26,7 @@ We are also minting the [cashout puppies NFTS](https://mumbai.polygonscan.com/ad
 ### CashOut Team
 
 1. [Elias Hezron](eliashezron23@gmail.com) solidity engineer and Project Lead
-2. [Sash solidity](tedwasachin123@gmail.com) frontend engineer and UI designer
+
 
 ##### Region location
 
